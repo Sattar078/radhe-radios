@@ -74,19 +74,19 @@ export function VerifiedReviewsSection() {
   };
 
   return (
-    <section className="w-full py-20 bg-[#000000] border-t border-white/[0.08]">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+    <section className="w-full py-10 sm:py-20 bg-[#000000] border-t border-white/[0.08]">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-10">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/20 text-white text-xs font-mono uppercase">
-              <Sparkles className="w-3.5 h-3.5 text-white" />
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+          <div className="space-y-2 sm:space-y-3">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/5 border border-white/20 text-white text-[10px] sm:text-xs font-mono uppercase">
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
               <span>VERIFIED DJ OPERATOR REVIEWS</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white">
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-black uppercase text-white">
               CUSTOMER VOICES • <span className="text-sonic-gradient">PAISA VASOOL</span>
             </h2>
-            <p className="text-sm text-zinc-300 max-w-xl font-normal">
+            <p className="text-xs sm:text-sm text-zinc-300 max-w-xl font-normal">
               Real, verified feedback from sound engineers, DJ operators, and event clients across India.
             </p>
           </div>
@@ -100,9 +100,9 @@ export function VerifiedReviewsSection() {
                 setShowReviewModal(true);
               }
             }}
-            className="self-start md:self-auto px-6 py-3 rounded-full bg-white text-black font-extrabold text-xs font-mono uppercase tracking-wider flex items-center gap-2 transition-all hover:bg-zinc-200 active:scale-95 cursor-pointer shadow-md"
+            className="self-start md:self-auto px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-white text-black font-extrabold text-[11px] sm:text-xs font-mono uppercase tracking-wider flex items-center gap-2 transition-all hover:bg-zinc-200 active:scale-95 cursor-pointer shadow-md"
           >
-            <MessageSquarePlus className="w-4 h-4 text-black" />
+            <MessageSquarePlus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black" />
             <span>Share Your Review</span>
           </button>
         </div>
@@ -118,7 +118,7 @@ export function VerifiedReviewsSection() {
             {reviews.map((rev) => (
               <GlassCard
                 key={rev._id || rev.title}
-                className="p-6 flex flex-col justify-between border-white/10 hover:border-white/30 transition-all backdrop-blur-xl bg-[#0c0c0e]"
+                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl flex flex-col justify-between border-white/10 hover:border-white/30 transition-all backdrop-blur-xl bg-[#0c0c0e]"
               >
                 <div>
                   {/* Stars & Badge */}

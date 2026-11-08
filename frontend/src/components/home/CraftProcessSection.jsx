@@ -120,7 +120,7 @@ export function CraftProcessSection() {
       ref={sectionRef}
       id="craft"
       tabIndex={0}
-      className="relative w-full py-28 px-6 md:px-10 bg-[#000000] overflow-hidden acoustic-mesh-bg outline-none"
+      className="relative w-full py-12 px-3 sm:py-28 sm:px-10 bg-[#000000] overflow-hidden acoustic-mesh-bg outline-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => {
         setIsPaused(false);
@@ -246,22 +246,22 @@ export function CraftProcessSection() {
                   key={step.step}
                   className="w-full shrink-0 px-1"
                 >
-                  <div className="relative p-8 sm:p-12 rounded-3xl bg-[#0c0c0e] border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.85)] flex flex-col md:flex-row md:items-center justify-between gap-8 backdrop-blur-2xl">
-                    <div className="space-y-4 max-w-2xl">
-                      <div className="flex items-center gap-3">
-                        <span className="px-3.5 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-400 font-mono text-xs uppercase tracking-widest font-bold">
+                  <div className="relative p-4 sm:p-12 rounded-2xl sm:rounded-3xl bg-[#0c0c0e] border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.85)] flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-8 backdrop-blur-2xl">
+                    <div className="space-y-2.5 sm:space-y-4 max-w-2xl">
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <span className="px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-400 font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold">
                           Phase {step.step} Protocol
                         </span>
-                        <span className="font-mono text-xs text-zinc-500">
+                        <span className="font-mono text-[10px] sm:text-xs text-zinc-500">
                           Step {idx + 1} of {totalSlides}
                         </span>
                       </div>
 
-                      <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white leading-tight">
+                      <h3 className="font-display text-lg sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white leading-tight">
                         {step.name}
                       </h3>
 
-                      <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+                      <p className="text-xs sm:text-base text-zinc-300 leading-relaxed font-normal">
                         {step.desc}
                       </p>
 

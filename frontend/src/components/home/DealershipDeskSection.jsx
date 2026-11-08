@@ -70,27 +70,27 @@ export function DealershipDeskSection() {
   return (
     <section
       id="dealership"
-      className="relative w-full py-28 px-6 md:px-10 bg-[#000000] overflow-hidden"
+      className="relative w-full py-12 px-3 sm:py-28 sm:px-10 bg-[#000000] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="max-w-3xl mb-16 space-y-4">
+        <div className="max-w-3xl mb-8 sm:mb-16 space-y-3 sm:space-y-4">
           <Reveal type="heading">
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight">
+            <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight">
               Connect With Our <span className="text-sonic-gradient">Factory Desk</span>
             </h2>
           </Reveal>
 
           <Reveal type="paragraph">
-            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
+            <p className="text-xs sm:text-base text-zinc-300 leading-relaxed font-normal">
               {t.dealership.description}
             </p>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10">
           {/* Studio Contact Information & Social Channels */}
-          <div className="lg:col-span-5 space-y-6">
-            <Reveal type="card" staggerIndex={0} className="p-8 rounded-3xl bg-[#0c0c0e] border border-white/10 space-y-6 backdrop-blur-2xl">
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+            <Reveal type="card" staggerIndex={0} className="p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#0c0c0e] border border-white/10 space-y-4 sm:space-y-6 backdrop-blur-2xl">
               <h3 className="font-display text-xl font-bold uppercase text-white">
                 Radhe Radios Kota Workshop
               </h3>
@@ -171,7 +171,7 @@ export function DealershipDeskSection() {
 
           {/* Interactive Form with Monochrome Styling */}
           <div className="lg:col-span-7">
-            <Reveal type="card" staggerIndex={1} className="p-8 sm:p-10 rounded-3xl bg-[#0c0c0e] border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.9)] backdrop-blur-2xl">
+            <Reveal type="card" staggerIndex={1} className="p-4 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#0c0c0e] border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.9)] backdrop-blur-2xl">
               {isAuthenticated && user && (
                 <div className="mb-6 p-3.5 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-between">
                   <div className="flex items-center gap-2">

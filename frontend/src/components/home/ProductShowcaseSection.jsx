@@ -259,7 +259,7 @@ export function ProductShowcaseSection() {
       ref={sectionRef}
       id="showcase"
       tabIndex={0}
-      className="relative w-full py-28 px-4 sm:px-6 md:px-10 bg-[#000000] overflow-x-clip select-none outline-none"
+      className="relative w-full py-12 sm:py-28 px-3 sm:px-6 md:px-10 bg-[#000000] overflow-x-clip select-none outline-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => {
         setIsPaused(false);
@@ -353,7 +353,7 @@ export function ProductShowcaseSection() {
 
         {/* ── 3D CIRCULAR GLOBE STAGE VIEWPORT ── */}
         <div
-          className="relative w-full max-w-6xl mx-auto h-[640px] sm:h-[580px] lg:h-[520px] my-6 select-none cursor-grab active:cursor-grabbing"
+          className="relative w-full max-w-6xl mx-auto h-[520px] sm:h-[580px] lg:h-[520px] my-3 sm:my-6 select-none cursor-grab active:cursor-grabbing"
           style={{
             perspective: '1400px',
             transformStyle: 'preserve-3d',
@@ -395,7 +395,7 @@ export function ProductShowcaseSection() {
                 }}
               >
                 <div
-                  className={`group relative rounded-3xl overflow-hidden transition-all duration-500 flex flex-col md:flex-row shadow-[0_25px_60px_rgba(0,0,0,0.85)] ${
+                  className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 flex flex-col md:flex-row shadow-[0_25px_60px_rgba(0,0,0,0.85)] ${
                     isCenter
                       ? 'bg-[#0c0c0e]/95 backdrop-blur-2xl border border-cyan-400/40 shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_40px_rgba(0,229,255,0.2)]'
                       : 'bg-black/45 backdrop-blur-2xl border border-white/20 hover:border-cyan-400/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.6)]'
@@ -403,7 +403,7 @@ export function ProductShowcaseSection() {
                 >
                   {/* Frosted Glass Sheen & Overlay for Previous/Upcoming Wings */}
                   {isGlassy && (
-                    <div className="absolute inset-0 z-30 rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 pointer-events-none transition-all duration-500 flex flex-col items-center justify-between p-6">
+                    <div className="absolute inset-0 z-30 rounded-2xl sm:rounded-3xl bg-black/45 backdrop-blur-xl border border-white/20 pointer-events-none transition-all duration-500 flex flex-col items-center justify-between p-4 sm:p-6">
                       <div className="w-full flex items-center justify-between">
                         <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-cyan-400/30 text-[10px] font-mono uppercase tracking-widest text-cyan-200 font-bold shadow-sm">
                           {label}
@@ -413,18 +413,18 @@ export function ProductShowcaseSection() {
                         </span>
                       </div>
 
-                      <div className="px-5 py-2.5 rounded-full bg-black/70 border border-cyan-400/40 backdrop-blur-xl text-xs font-mono font-bold uppercase tracking-widest text-white shadow-[0_4px_24px_rgba(0,0,0,0.8)] flex items-center gap-2 group-hover:scale-105 transition-transform">
+                      <div className="px-4 py-2 rounded-full bg-black/70 border border-cyan-400/40 backdrop-blur-xl text-xs font-mono font-bold uppercase tracking-widest text-white shadow-[0_4px_24px_rgba(0,0,0,0.8)] flex items-center gap-2 group-hover:scale-105 transition-transform">
                         <span>Click or Swipe</span>
                         <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
                       </div>
 
                       {/* Glass Specular Glare */}
-                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-transparent via-cyan-400/[0.08] to-transparent pointer-events-none" />
+                      <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-tr from-transparent via-cyan-400/[0.08] to-transparent pointer-events-none" />
                     </div>
                   )}
 
                   {/* Product Frame Showcase Image */}
-                  <div className="relative aspect-video md:aspect-auto md:w-1/2 overflow-hidden bg-black min-h-[220px] md:min-h-[380px]">
+                  <div className="relative aspect-video md:aspect-auto md:w-1/2 overflow-hidden bg-black min-h-[160px] sm:min-h-[220px] md:min-h-[380px]">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -433,21 +433,21 @@ export function ProductShowcaseSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/80 via-black/20 to-transparent pointer-events-none" />
 
-                    <div className="absolute top-4 left-4 z-10">
-                      <span className="px-3.5 py-1 rounded-full bg-black/85 border border-cyan-400/30 text-[10px] font-mono uppercase tracking-wider text-cyan-200 backdrop-blur-md">
+                    <div className="absolute top-2.5 sm:top-4 left-2.5 sm:left-4 z-10">
+                      <span className="px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full bg-black/85 border border-cyan-400/30 text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-cyan-200 backdrop-blur-md">
                         {project.category}
                       </span>
                     </div>
 
-                    <div className="absolute top-4 right-4 z-10">
-                      <span className="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500/20 to-red-500/20 border border-cyan-400/40 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md font-bold">
+                    <div className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4 z-10">
+                      <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-gradient-to-r from-cyan-500/20 to-red-500/20 border border-cyan-400/40 text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md font-bold">
                         {project.badge}
                       </span>
                     </div>
                   </div>
 
                   {/* Specs & Description Column */}
-                  <div className="p-6 sm:p-7 md:w-1/2 flex flex-col justify-between space-y-4 bg-gradient-to-b from-[#0c0c0e] to-black">
+                  <div className="p-3.5 sm:p-7 md:w-1/2 flex flex-col justify-between space-y-2.5 sm:space-y-4 bg-gradient-to-b from-[#0c0c0e] to-black">
                     <div className="space-y-3">
                       <span className="font-mono text-[10px] uppercase tracking-widest text-cyan-400 font-bold block">
                         Rig Configuration 0{idx + 1}

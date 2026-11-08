@@ -526,13 +526,13 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
         style={{ opacity: 1, transform: 'translateY(0px)', pointerEvents: 'auto' }}
         className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-6 text-center will-change-transform"
       >
-        <div className="max-w-3xl mx-auto space-y-4 pointer-events-auto">
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white leading-[1.08] drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
-            {t.hero.heading1} <br />
-            <span className="text-sonic-gradient">{t.hero.heading2}</span>
+        <div className="max-w-3xl mx-auto space-y-2 sm:space-y-4 pointer-events-auto">
+          <h1 className="font-display text-2xl sm:text-5xl md:text-7xl font-black uppercase tracking-tight text-white leading-tight sm:leading-[1.08] drop-shadow-[0_4px_30px_rgba(0,0,0,0.95)]">
+            {t.hero.heading1} <br className="hidden sm:inline" />
+            <span className="text-sonic-gradient sm:ml-0 ml-1.5">{t.hero.heading2}</span>
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg text-zinc-200 max-w-xl mx-auto leading-relaxed drop-shadow-[0_2px_16px_rgba(0,0,0,0.95)] font-normal">
+          <p className="text-xs sm:text-base md:text-lg text-zinc-300 max-w-xl mx-auto leading-relaxed drop-shadow-[0_2px_16px_rgba(0,0,0,0.95)] font-normal px-2">
             {t.hero.description}
           </p>
         </div>
@@ -542,31 +542,31 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
       <div
         ref={chapter2Ref}
         style={{ opacity: 0, transform: 'translateY(24px)', pointerEvents: 'none' }}
-        className="absolute inset-0 z-10 flex flex-col justify-center items-start px-4 sm:px-10 lg:px-20 pointer-events-none will-change-transform"
+        className="absolute inset-0 z-10 flex flex-col justify-end sm:justify-center items-start px-3 sm:px-10 lg:px-20 pb-16 sm:pb-0 pointer-events-none will-change-transform"
       >
-        <div className="max-w-md lg:max-w-lg w-full p-5 sm:p-7 rounded-3xl bg-black/60 backdrop-blur-xl border border-white/12 shadow-[0_20px_50px_rgba(0,0,0,0.85)] space-y-3.5 text-left pointer-events-auto">
-          <h2 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-white leading-tight">
+        <div className="max-w-md lg:max-w-lg w-full p-3.5 sm:p-7 rounded-2xl sm:rounded-3xl bg-black/75 sm:bg-black/60 backdrop-blur-xl border border-white/12 shadow-[0_20px_50px_rgba(0,0,0,0.85)] space-y-2 sm:space-y-3.5 text-left pointer-events-auto">
+          <h2 className="font-display text-lg sm:text-3xl font-black uppercase tracking-tight text-white leading-tight">
             True <span className="text-sonic-gradient">Paisa Vasool</span> Sound
           </h2>
 
-          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+          <p className="text-[11px] sm:text-sm text-zinc-300 leading-relaxed font-normal">
             {t.about.paragraphs[1]}
           </p>
 
           {/* Compact 2x2 Stat Pills */}
-          <div className="grid grid-cols-2 gap-2 pt-1">
+          <div className="grid grid-cols-2 gap-1.5 sm:gap-2 pt-0.5 sm:pt-1">
             {t.stats.map((stat) => (
               <div
                 key={stat.label}
-                className="p-2.5 rounded-2xl bg-white/[0.03] border border-white/10 text-left"
+                className="p-1.5 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10 text-left"
               >
-                <div className="font-display text-base sm:text-lg font-black text-cyan-300">
+                <div className="font-display text-sm sm:text-lg font-black text-cyan-300">
                   {stat.value}
                 </div>
-                <div className="font-mono text-[9px] text-white uppercase font-bold tracking-wider">
+                <div className="font-mono text-[8px] sm:text-[9px] text-white uppercase font-bold tracking-wider">
                   {stat.label}
                 </div>
-                <div className="text-[8.5px] text-zinc-400 font-sans mt-0.5 leading-tight">
+                <div className="text-[7.5px] sm:text-[8.5px] text-zinc-400 font-sans mt-0.5 leading-tight hidden sm:block">
                   {stat.desc}
                 </div>
               </div>
@@ -579,30 +579,30 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
       <div
         ref={chapter3Ref}
         style={{ opacity: 0, transform: 'translateY(24px)', pointerEvents: 'none' }}
-        className="absolute inset-0 z-10 flex flex-col justify-center items-end px-4 sm:px-10 lg:px-20 pointer-events-none will-change-transform"
+        className="absolute inset-0 z-10 flex flex-col justify-end sm:justify-center items-end px-3 sm:px-10 lg:px-20 pb-16 sm:pb-0 pointer-events-none will-change-transform"
       >
-        <div className="max-w-md lg:max-w-lg w-full p-5 sm:p-7 rounded-3xl bg-black/60 backdrop-blur-xl border border-cyan-400/30 shadow-[0_20px_50px_rgba(0,0,0,0.85)] space-y-3.5 text-left pointer-events-auto">
-          <h2 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-white leading-tight">
+        <div className="max-w-md lg:max-w-lg w-full p-3.5 sm:p-7 rounded-2xl sm:rounded-3xl bg-black/75 sm:bg-black/60 backdrop-blur-xl border border-cyan-400/30 shadow-[0_20px_50px_rgba(0,0,0,0.85)] space-y-2 sm:space-y-3.5 text-left pointer-events-auto">
+          <h2 className="font-display text-lg sm:text-3xl font-black uppercase tracking-tight text-white leading-tight">
             Precision <span className="text-sonic-gradient">Power Engineering</span>
           </h2>
 
-          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
+          <p className="text-[11px] sm:text-sm text-zinc-300 leading-relaxed font-normal">
             {t.about.paragraphs[2]}
           </p>
 
           {/* 3 Compact Stacked Highlights */}
-          <div className="space-y-1.5 pt-1">
+          <div className="space-y-1 sm:space-y-1.5 pt-0.5 sm:pt-1">
             {t.about.pillars.map((pillar) => (
               <div
                 key={pillar.title}
-                className="p-2 sm:p-2.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-start gap-2.5"
+                className="p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl bg-white/[0.03] border border-white/10 flex items-start gap-2"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0 shadow-[0_0_8px_#00e5ff]" />
+                <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1 shrink-0 shadow-[0_0_8px_#00e5ff]" />
                 <div>
-                  <div className="font-display text-[11px] font-bold text-white uppercase leading-none">
+                  <div className="font-display text-[10px] sm:text-[11px] font-bold text-white uppercase leading-none">
                     {pillar.title}
                   </div>
-                  <div className="text-[9.5px] text-zinc-400 leading-tight mt-0.5">
+                  <div className="text-[8.5px] sm:text-[9.5px] text-zinc-400 leading-tight mt-0.5">
                     {pillar.desc}
                   </div>
                 </div>
@@ -616,26 +616,26 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
       <div
         ref={chapter4Ref}
         style={{ opacity: 0, transform: 'translateY(24px)', pointerEvents: 'none' }}
-        className="absolute inset-0 z-10 flex flex-col items-center justify-end pb-12 sm:pb-16 px-4 sm:px-6 text-center will-change-transform pointer-events-none"
+        className="absolute inset-0 z-10 flex flex-col items-center justify-end pb-8 sm:pb-16 px-3 sm:px-6 text-center will-change-transform pointer-events-none"
       >
-        <div className="max-w-2xl mx-auto space-y-3.5 pointer-events-auto">
+        <div className="max-w-2xl mx-auto space-y-2.5 sm:space-y-3.5 pointer-events-auto">
           {/* Majestic Finale Headline */}
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
-            UNRIVALED SOUND <br />
-            <span className="text-sonic-gradient">READY FOR YOUR RIG</span>
+          <h2 className="font-display text-xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight sm:leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+            UNRIVALED SOUND <br className="hidden sm:inline" />
+            <span className="text-sonic-gradient sm:ml-0 ml-1.5">READY FOR YOUR RIG</span>
           </h2>
 
           {/* Summary body copy */}
-          <p className="text-xs sm:text-sm text-zinc-300 max-w-lg mx-auto leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] font-normal">
+          <p className="text-[11px] sm:text-sm text-zinc-300 max-w-lg mx-auto leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] font-normal px-2">
             {t.about.paragraphs[3]}
           </p>
 
           {/* Stylized Action Buttons with Dual Logo Lamp Spotlight Effect */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-0.5 sm:pt-1">
             <Link
               to="/auth"
               id="hero-get-started-btn"
-              className="relative group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-b from-zinc-800 to-zinc-950 text-cyan-100 border border-cyan-400/50 hover:border-cyan-300 font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_0_24px_rgba(0,229,255,0.35),inset_0_1px_1px_rgba(255,255,255,0.3)] hover:shadow-[0_0_36px_rgba(0,229,255,0.6)] hover:scale-105 active:scale-95 cursor-pointer overflow-hidden"
+              className="relative group inline-flex items-center gap-1.5 sm:gap-2 px-5 py-2.5 sm:px-8 sm:py-3.5 rounded-full bg-gradient-to-b from-zinc-800 to-zinc-950 text-cyan-100 border border-cyan-400/50 hover:border-cyan-300 font-extrabold text-[11px] sm:text-xs uppercase tracking-wider transition-all shadow-[0_0_24px_rgba(0,229,255,0.35),inset_0_1px_1px_rgba(255,255,255,0.3)] hover:shadow-[0_0_36px_rgba(0,229,255,0.6)] hover:scale-105 active:scale-95 cursor-pointer overflow-hidden"
             >
               {/* Overhead Logo Dual Lamp Fixture & Downward Beam */}
               <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 pointer-events-none flex flex-col items-center">
@@ -643,7 +643,7 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
                 <div className="w-32 h-12 -mt-0.5 bg-[radial-gradient(ellipse_at_top,_rgba(0,229,255,0.55)_0%,_rgba(239,68,68,0.2)_55%,_transparent_75%)] blur-[0.5px]" />
               </div>
               <span className="relative z-10 drop-shadow-[0_0_8px_rgba(0,229,255,0.6)]">GET STARTED</span>
-              <ArrowRight className="w-4 h-4 stroke-[3] text-cyan-300 relative z-10" />
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] text-cyan-300 relative z-10" />
             </Link>
 
             <button
@@ -652,7 +652,7 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
                 const el = document.getElementById('systems');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="relative group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-black/60 hover:bg-zinc-900/80 border border-white/20 hover:border-cyan-400/50 text-zinc-300 hover:text-cyan-100 font-bold text-xs uppercase tracking-wider transition-all backdrop-blur-md hover:scale-105 cursor-pointer overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(0,229,255,0.25)]"
+              className="relative group inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full bg-black/60 hover:bg-zinc-900/80 border border-white/20 hover:border-cyan-400/50 text-zinc-300 hover:text-cyan-100 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all backdrop-blur-md hover:scale-105 cursor-pointer overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(0,229,255,0.25)]"
             >
               {/* Overhead Logo Lamp Fixture */}
               <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center">
@@ -665,7 +665,7 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
 
             <a
               href={`tel:${STUDIO_CONFIG.phone}`}
-              className="relative group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-black/60 hover:bg-zinc-900/80 border border-white/20 hover:border-cyan-400/50 text-zinc-300 hover:text-cyan-100 font-bold text-xs uppercase tracking-wider transition-all backdrop-blur-md hover:scale-105 cursor-pointer overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(0,229,255,0.25)]"
+              className="relative group inline-flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full bg-black/60 hover:bg-zinc-900/80 border border-white/20 hover:border-cyan-400/50 text-zinc-300 hover:text-cyan-100 font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all backdrop-blur-md hover:scale-105 cursor-pointer overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(0,229,255,0.25)]"
             >
               {/* Overhead Logo Lamp Fixture */}
               <div className="absolute -top-0.5 left-1/2 -translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center">
@@ -673,7 +673,8 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
                 <div className="w-24 h-10 -mt-0.5 bg-[radial-gradient(ellipse_at_top,_rgba(0,229,255,0.5)_0%,_transparent_70%)] blur-[0.5px]" />
               </div>
               <Phone className="w-3.5 h-3.5 fill-current text-zinc-400 group-hover:text-cyan-300 transition-colors relative z-10" />
-              <span className="relative z-10">{t.hero.callBtn}</span>
+              <span className="relative z-10 hidden sm:inline">{STUDIO_CONFIG.phone}</span>
+              <span className="relative z-10 sm:hidden">{t.hero.callBtn || 'CALL'}</span>
             </a>
           </div>
         </div>

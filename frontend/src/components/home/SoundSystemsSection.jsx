@@ -202,7 +202,7 @@ export function SoundSystemsSection() {
       ref={sectionRef}
       id="systems"
       tabIndex={0}
-      className="relative w-full py-24 px-4 sm:px-6 md:px-10 bg-[#000000] overflow-x-clip acoustic-mesh-bg outline-none"
+      className="relative w-full py-12 sm:py-24 px-3 sm:px-6 md:px-10 bg-[#000000] overflow-x-clip acoustic-mesh-bg outline-none"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => {
         setIsPaused(false);
@@ -320,7 +320,7 @@ export function SoundSystemsSection() {
 
         {/* ── 3D CIRCULAR GLOBE SLIDESHOW STAGE ── */}
         <div
-          className="relative w-full max-w-6xl mx-auto h-[600px] sm:h-[560px] my-6 select-none cursor-grab active:cursor-grabbing"
+          className="relative w-full max-w-6xl mx-auto h-[480px] sm:h-[560px] my-3 sm:my-6 select-none cursor-grab active:cursor-grabbing"
           style={{
             perspective: '1400px',
             transformStyle: 'preserve-3d',
@@ -350,7 +350,7 @@ export function SoundSystemsSection() {
                 onClick={() => {
                   if (!isCenter) setCurrentSlide(idx);
                 }}
-                className={`absolute left-1/2 top-1/2 w-[90vw] max-w-[560px] sm:max-w-[620px] transition-all ${
+                className={`absolute left-1/2 top-1/2 w-[92vw] max-w-[560px] sm:max-w-[620px] transition-all ${
                   !isCenter ? 'cursor-pointer hover:opacity-95' : ''
                 }`}
                 style={{
@@ -363,7 +363,7 @@ export function SoundSystemsSection() {
                 }}
               >
                 <div
-                  className={`group relative p-7 sm:p-9 rounded-3xl overflow-hidden transition-all duration-500 flex flex-col justify-between shadow-[0_25px_60px_rgba(0,0,0,0.85)] min-h-[460px] sm:min-h-[480px] ${
+                  className={`group relative p-4 sm:p-9 rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 flex flex-col justify-between shadow-[0_25px_60px_rgba(0,0,0,0.85)] min-h-[400px] sm:min-h-[480px] ${
                     isCenter
                       ? 'bg-[#0c0c0e]/95 backdrop-blur-2xl border border-cyan-400/40 shadow-[0_20px_60px_rgba(0,0,0,0.9),0_0_40px_rgba(0,229,255,0.2)]'
                       : 'bg-black/40 backdrop-blur-2xl border border-white/20 hover:border-cyan-400/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.6)]'
@@ -403,23 +403,23 @@ export function SoundSystemsSection() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-white mb-3 group-hover:text-cyan-100 transition-colors">
+                    <h3 className="font-display text-lg sm:text-3xl font-black uppercase tracking-tight text-white mb-2 sm:mb-3 group-hover:text-cyan-100 transition-colors">
                       {service.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6 font-normal max-w-2xl">
+                    <p className="text-[11px] sm:text-sm text-zinc-300 leading-relaxed mb-3 sm:mb-6 font-normal max-w-2xl line-clamp-3 sm:line-clamp-none">
                       {service.description}
                     </p>
 
                     {/* Deliverables / Specifications Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3 mb-3 sm:mb-6">
                       {service.deliverables.map((item, dIdx) => (
                         <div
                           key={dIdx}
-                          className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/[0.02] border border-white/5 text-xs text-zinc-300"
+                          className="flex items-center gap-2 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl bg-white/[0.02] border border-white/5 text-[11px] sm:text-xs text-zinc-300"
                         >
-                          <Check className="w-4 h-4 text-cyan-300 shrink-0" />
+                          <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-300 shrink-0" />
                           <span>{item}</span>
                         </div>
                       ))}

@@ -16,22 +16,22 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#000000] pt-20 pb-12 text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16">
+    <footer className="w-full bg-[#000000] pt-10 sm:pt-20 pb-8 sm:pb-12 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 pb-8 sm:pb-16">
           {/* Brand Col */}
           <div className="md:col-span-5 flex flex-col">
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
               <img
                 src="/radhe radios logo.svg"
                 alt="Radhe Radios Logo"
-                className="h-14 sm:h-16 w-auto object-contain drop-shadow-[0_0_16px_rgba(0,229,255,0.5)]"
+                className="h-10 sm:h-16 w-auto object-contain drop-shadow-[0_0_16px_rgba(0,229,255,0.5)]"
               />
-              <span className="font-display font-extrabold text-xl tracking-[0.16em] uppercase text-white">
+              <span className="font-display font-extrabold text-base sm:text-xl tracking-[0.16em] uppercase text-white">
                 {t.brandName}
               </span>
             </div>
-            <p className="text-sm text-zinc-400 max-w-sm mb-6 leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-zinc-400 max-w-sm mb-4 sm:mb-6 leading-relaxed font-normal">
               {t.footer.description}
             </p>
             <div className="flex flex-col gap-2 text-xs font-mono text-zinc-400">
