@@ -31,9 +31,28 @@ connectDb().then(async () => {
 });
 
 // Middleware
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://127.0.0.1:5173',
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (
+        allowedOrigins.includes(origin) ||
+        origin.endsWith('.vercel.app') ||
+        origin.endsWith('.netlify.app') ||
+        origin.endsWith('.onrender.com') ||
+        process.env.NODE_ENV !== 'production'
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   })
 );

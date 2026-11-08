@@ -1,0 +1,36 @@
+services:
+  # Backend Web Service (Node.js API)
+  - type: web
+    name: radhe-radios-api
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+
+  # Frontend Static Site (React Vite SPA)
+  - type: static
+    name: radhe-radios-frontend
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: radhe-radios-api
+          property: host
