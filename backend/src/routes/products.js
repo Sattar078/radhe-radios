@@ -4,6 +4,16 @@ import { requireAuth, requireAdmin } from '../middleware/auth.js';
 
 const router = express.Router();
 
+// High-Concurrency In-Memory Micro-Cache for Catalog Reads
+let catalogCache = null;
+let catalogCacheTime = 0;
+const CACHE_TTL_MS = 30000; // 30 seconds TTL
+
+export function invalidateCatalogCache() {
+  catalogCache = null;
+  catalogCacheTime = 0;
+}
+
 // ─────────────────────────────────────────
 // GET /api/products (Public)
 // Query params: ?search=&category=
@@ -11,6 +21,15 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     const { search = '', category = '' } = req.query;
+
+    // Fast path: served from RAM for un-filtered catalog requests
+    const isDefaultRequest = (!search || !search.trim()) && (!category || category === 'All Audio Systems');
+    const now = Date.now();
+    if (isDefaultRequest && catalogCache && now - catalogCacheTime < CACHE_TTL_MS) {
+      res.setHeader('X-Cache', 'HIT');
+      res.setHeader('Cache-Control', 'public, max-age=30, stale-while-revalidate=120');
+      return res.json(catalogCache);
+    }
 
     const query = {};
 
@@ -24,15 +43,30 @@ router.get('/', async (req, res) => {
       query.$or = [{ title: regex }, { description: regex }, { tags: regex }, { category: regex }];
     }
 
-    const products = await Product.find(query).sort({ createdAt: -1 });
-    const distinctCategories = await Product.distinct('category');
+    const [products, distinctCategories] = await Promise.all([
+      Product.find(query).sort({ createdAt: -1 }).lean(),
+      Product.distinct('category'),
+    ]);
+
     const categories = ['All Audio Systems', ...distinctCategories];
 
-    return res.json({
-      products: products.map((p) => p.toSafeObject()),
+    const result = {
+      products: products.map((p) => {
+        delete p.__v;
+        return p;
+      }),
       categories,
       total: products.length,
-    });
+    };
+
+    if (isDefaultRequest) {
+      catalogCache = result;
+      catalogCacheTime = now;
+      res.setHeader('X-Cache', 'MISS');
+      res.setHeader('Cache-Control', 'public, max-age=30, stale-while-revalidate=120');
+    }
+
+    return res.json(result);
   } catch (err) {
     console.error('Products list error:', err);
     return res.status(500).json({ error: 'Failed to fetch products.' });
@@ -80,6 +114,7 @@ router.post('/', requireAuth, requireAdmin, async (req, res) => {
       specs: specs || {},
     });
 
+    invalidateCatalogCache();
     return res.status(201).json(newProduct.toSafeObject());
   } catch (err) {
     console.error('Admin create product error:', err);
@@ -111,6 +146,7 @@ router.put('/:id', requireAuth, requireAdmin, async (req, res) => {
     if (specs !== undefined) product.specs = specs;
 
     await product.save();
+    invalidateCatalogCache();
     return res.json(product.toSafeObject());
   } catch (err) {
     console.error('Admin update product error:', err);
@@ -127,6 +163,7 @@ router.delete('/:id', requireAuth, requireAdmin, async (req, res) => {
     if (!deleted) {
       return res.status(404).json({ error: 'Product not found.' });
     }
+    invalidateCatalogCache();
     return res.json({ success: true, message: 'Product removed from catalog.' });
   } catch (err) {
     console.error('Admin delete product error:', err);

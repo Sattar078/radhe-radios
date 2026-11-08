@@ -63,6 +63,10 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
+// High-concurrency query optimization indexes
+reviewSchema.index({ is_verified: 1, rating: -1, createdAt: -1 });
+reviewSchema.index({ product_id: 1, createdAt: -1 });
+
 reviewSchema.methods.toSafeObject = function () {
   const obj = this.toObject();
   obj.date = obj.createdAt ? obj.createdAt.toISOString().split('T')[0] : new Date().toISOString().split('T')[0];

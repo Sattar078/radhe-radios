@@ -58,6 +58,11 @@ const productSchema = new mongoose.Schema(
   }
 );
 
+// High-concurrency query optimization indexes
+productSchema.index({ category: 1, inStock: 1, createdAt: -1 });
+productSchema.index({ featured: 1, inStock: 1 });
+productSchema.index({ title: 'text', description: 'text', category: 'text' });
+
 productSchema.methods.toSafeObject = function () {
   const obj = this.toObject();
   delete obj.__v;

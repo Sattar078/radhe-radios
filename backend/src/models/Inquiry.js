@@ -65,6 +65,11 @@ const inquirySchema = new mongoose.Schema(
   }
 );
 
+// High-concurrency query optimization indexes
+inquirySchema.index({ status: 1, createdAt: -1 });
+inquirySchema.index({ customer_phone: 1, createdAt: -1 });
+inquirySchema.index({ createdAt: -1 });
+
 inquirySchema.methods.toSafeObject = function () {
   const obj = this.toObject();
   obj.date = obj.createdAt ? obj.createdAt.toISOString().split('T')[0] : new Date().toISOString().split('T')[0];

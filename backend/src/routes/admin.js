@@ -26,10 +26,10 @@ router.get('/overview', async (req, res) => {
       downloads,
     ] = await Promise.all([
       User.countDocuments(),
-      Inquiry.find({}),
-      ContactMessage.find({}),
+      Inquiry.find({}, 'status amount payment_status').lean(),
+      ContactMessage.find({}, 'status').lean(),
       Product.countDocuments(),
-      DownloadItem.find({}, 'download_count'),
+      DownloadItem.find({}, 'download_count').lean(),
     ]);
 
     const inquiriesByStatus = {

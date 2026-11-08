@@ -58,6 +58,9 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+// High-concurrency query optimization indexes
+userSchema.index({ role: 1, adminApproved: 1 });
+
 // Method to return user representation without sensitive fields
 userSchema.methods.toSafeObject = function () {
   const obj = this.toObject();
