@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "radhe-radios-sound",
     "public": "frontend/dist",
     "ignore": [
       "firebase.json",
