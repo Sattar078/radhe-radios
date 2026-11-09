@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, User, ShieldCheck, LogOut, ChevronDown } from 'lucide-react';
+import { Menu, X, User, ShieldCheck, LogOut, ChevronDown, MapPin } from 'lucide-react';
 import { Link, useRouter } from '../../router';
 import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
+import { STUDIO_CONFIG } from '../../data/studioData';
+import { InstagramIcon, FacebookIcon, GoogleMapsIcon } from '../ui/SocialIcons';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -347,6 +349,41 @@ export function Navbar() {
               <span className="relative z-10">Get Started / Login</span>
             </Link>
           )}
+          {/* Quick Social & Location Bar in Mobile Drawer */}
+          <div className="pt-3 mt-1 border-t border-white/10 flex items-center justify-around text-xs font-mono">
+            <a
+              href={STUDIO_CONFIG.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 p-2 rounded-xl bg-white/[0.04] text-pink-400 hover:text-white transition-colors"
+              title="Instagram"
+            >
+              <InstagramIcon className="w-4 h-4" />
+              <span className="text-[11px] font-bold">Instagram</span>
+            </a>
+
+            <a
+              href={STUDIO_CONFIG.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 p-2 rounded-xl bg-white/[0.04] text-blue-400 hover:text-white transition-colors"
+              title="Facebook"
+            >
+              <FacebookIcon className="w-4 h-4" />
+              <span className="text-[11px] font-bold">Facebook</span>
+            </a>
+
+            <a
+              href={STUDIO_CONFIG.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 p-2 rounded-xl bg-white/[0.04] text-emerald-400 hover:text-white transition-colors"
+              title="Workshop on Google Maps"
+            >
+              <GoogleMapsIcon className="w-4 h-4" />
+              <span className="text-[11px] font-bold">Location</span>
+            </a>
+          </div>
         </div>
       )}
     </header>

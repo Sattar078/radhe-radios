@@ -1,5 +1,5 @@
 // Radhe Radios Kota — Progressive Web App Service Worker
-const CACHE_NAME = 'radhe-radios-pwa-v1.0.2';
+const CACHE_NAME = 'radhe-radios-pwa-v1.0.3';
 const OFFLINE_FALLBACK_URL = '/offline.html';
 
 const PRECACHE_ASSETS = [

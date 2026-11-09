@@ -50,10 +50,10 @@ export const TRANSLATIONS = {
 
     // Studio Stats
     stats: [
+      { value: "10L+", label: "Products Sold", desc: "10,00,000+ Units Pan-India" },
+      { value: "200+", label: "Total Dealers", desc: "200+ Authorized Dealers Nationwide" },
       { value: "2018", label: "Estd. in Kota", desc: "Transport Nagar Headquarters" },
       { value: "100%", label: "Paisa Vasool", desc: "Every single rupee worth it" },
-      { value: "Class-A", label: "Made in India Amps", desc: "Heavy heatsinks & capacitors" },
-      { value: "All-India", label: "Vehicle & Pro Audio", desc: "Custom engineered durability" },
     ],
 
     // About Section

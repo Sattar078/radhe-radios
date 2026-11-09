@@ -25,29 +25,68 @@ export const STUDIO_CONFIG = {
   established: "2018",
   heroVideoSrc: "/radheradios.mp4",
   heroPosterSrc: "/hero-poster.jpg",
-  totalFrames: 775,
+  totalFrames: 1000,
+  gstin: "08HWUPK9821A1Z2",
+  productSales: "10L+",
+  totalDealers: "200+",
+  instagramUrl: "https://www.instagram.com/radhe_radios_kota?rpxt=aDdkZGkxZGp5YjJs",
+  instagramHandle: "@radhe_radios_kota",
+  facebookUrl: "https://www.facebook.com/share/1DUitfSpyL/?mibextid=wwXIfr",
+  facebookHandle: "Radhe Radios Official",
+  mapsUrl: "https://maps.app.goo.gl/RUuVi5bQVXZRNvGy7?g_st=ic",
+  youtubeUrl: "https://www.youtube.com/results?search_query=radhe+radios+kota",
 };
 
 export const SOCIAL_LINKS = [
   {
+    name: "Instagram",
+    type: "instagram",
+    url: "https://www.instagram.com/radhe_radios_kota?rpxt=aDdkZGkxZGp5YjJs",
+    handle: "@radhe_radios_kota",
+    label: "Official Instagram Reels & Sound Tests",
+  },
+  {
+    name: "Facebook",
+    type: "facebook",
+    url: "https://www.facebook.com/share/1DUitfSpyL/?mibextid=wwXIfr",
+    handle: "Radhe Radios Official",
+    label: "Official Community & Updates",
+  },
+  {
+    name: "Shop Location",
+    type: "maps",
+    url: "https://maps.app.goo.gl/RUuVi5bQVXZRNvGy7?g_st=ic",
+    handle: "Transport Nagar, Kota (Google Maps)",
+    label: "Visit Our Kota Workshop Desk",
+  },
+  {
+    name: "YouTube",
+    type: "youtube",
+    url: "https://www.youtube.com/results?search_query=radhe+radios+kota",
+    handle: "Radhe Radios Kota",
+    label: "Speaker Bass Demos & Tests",
+  },
+  {
     name: "WhatsApp Call",
+    type: "whatsapp",
     url: "https://wa.me/919887158522?text=Hello%20Radhe%20Radios%20Kota!%20I%20want%20details%20about%20amplifiers%20and%20sound%20systems.",
-    handle: "+91 9887158522",
+    handle: "+91 98871 58522",
     label: "Direct WhatsApp Consultation",
   },
   {
-    name: "Secondary Helpline",
+    name: "Workshop Helpline",
+    type: "phone",
     url: "tel:+919509040057",
-    handle: "+91 9509040057",
-    label: "Workshop Desk (Kota)",
+    handle: "+91 95090 40057",
+    label: "Direct Phone Support",
   },
 ];
 
 export const STUDIO_STATS = [
+  { value: "10L+", label: "Products Sold", labelHindi: "Products Sold", desc: "10,00,000+ Units Pan-India" },
+  { value: "200+", label: "Total Dealers", labelHindi: "Total Dealers", desc: "Authorized Dealers Across India" },
   { value: "2018", label: "Estd. in Kota", labelHindi: "Estd. in Kota", desc: "Transport Nagar Workshop" },
   { value: "100%", label: "Paisa Vasool", labelHindi: "True Value Audio", desc: "Top-tier audio value" },
-  { value: "Class-A", label: "Made in India Amps", labelHindi: "Made in India Amps", desc: "Heavy heatsinks & capacitors" },
-  { value: "All-India", label: "Vehicle & Pro Audio", labelHindi: "Vehicle & Pro Audio", desc: "Custom engineered durability" },
 ];
 
 export const ABOUT_CONTENT = {

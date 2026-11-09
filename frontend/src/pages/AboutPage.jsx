@@ -15,7 +15,7 @@ export function AboutPage() {
     <div className="w-full py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         {/* Page Header */}
-        <RevealOnScroll className="max-w-4xl mb-16 md:mb-20">
+        <RevealOnScroll className="max-w-4xl mb-12">
           <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-[#F5F5F5] leading-[1.02] mb-6">
             HIGH-PERFORMANCE <br />
             <span className="text-gold-gradient">POWER AMPLIFIERS &amp; AUDIO</span>
@@ -23,6 +23,81 @@ export function AboutPage() {
           <p className="text-base sm:text-lg text-zinc-300 leading-relaxed font-normal">
             {t.about.subheading}
           </p>
+        </RevealOnScroll>
+
+        {/* 4 Key Pillars / Business Milestones (10L+ Sales, 200+ Dealers, Estd. 2018, 100% Paisa Vasool) */}
+        <RevealOnScroll className="mb-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-black/60 border border-cyan-400/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+              <span className="block text-2xl sm:text-4xl font-black text-cyan-300 font-display">
+                {STUDIO_CONFIG.productSales || '10L+'}
+              </span>
+              <span className="text-xs sm:text-sm font-mono uppercase text-white font-bold tracking-wider block mt-1">
+                Products Sold
+              </span>
+              <span className="text-[11px] text-zinc-400 font-sans mt-1 block">
+                10,00,000+ power amps & systems across India
+              </span>
+            </div>
+
+            <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-black/60 border border-red-500/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+              <span className="block text-2xl sm:text-4xl font-black text-red-400 font-display">
+                {STUDIO_CONFIG.totalDealers || '200+'}
+              </span>
+              <span className="text-xs sm:text-sm font-mono uppercase text-white font-bold tracking-wider block mt-1">
+                Total Dealers
+              </span>
+              <span className="text-[11px] text-zinc-400 font-sans mt-1 block">
+                Authorized distribution network pan-India
+              </span>
+            </div>
+
+            <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-black/60 border border-cyan-400/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+              <span className="block text-2xl sm:text-4xl font-black text-cyan-300 font-display">
+                {STUDIO_CONFIG.established || '2018'}
+              </span>
+              <span className="text-xs sm:text-sm font-mono uppercase text-white font-bold tracking-wider block mt-1">
+                Estd. in Kota
+              </span>
+              <span className="text-[11px] text-zinc-400 font-sans mt-1 block">
+                Transport Nagar Workshop headquarters
+              </span>
+            </div>
+
+            <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-black/60 border border-amber-400/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+              <span className="block text-2xl sm:text-4xl font-black text-amber-300 font-display">
+                100%
+              </span>
+              <span className="text-xs sm:text-sm font-mono uppercase text-white font-bold tracking-wider block mt-1">
+                Paisa Vasool
+              </span>
+              <span className="text-[11px] text-zinc-400 font-sans mt-1 block">
+                Every single rupee worth it guarantee
+              </span>
+            </div>
+          </div>
+
+          {/* Official GSTIN Verification Strip */}
+          <div className="mt-4 p-3.5 sm:p-4 rounded-2xl bg-cyan-950/20 border border-cyan-400/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <ShieldCheck className="w-5 h-5 text-cyan-400 shrink-0" />
+              <div>
+                <span className="text-xs font-mono text-zinc-400 uppercase block font-semibold">Government Registered Audio Manufacturer</span>
+                <span className="text-sm font-mono font-black text-white tracking-wider">GSTIN: {STUDIO_CONFIG.gstin}</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <a
+                href={STUDIO_CONFIG.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-1.5 rounded-xl bg-white/10 hover:bg-cyan-500/20 text-xs font-mono text-white flex items-center gap-1.5 transition-all"
+              >
+                <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Visit Transport Nagar Workshop (Google Maps) ↗</span>
+              </a>
+            </div>
+          </div>
         </RevealOnScroll>
 
         {/* Narrative Grid */}

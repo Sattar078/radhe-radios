@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { STUDIO_CONFIG, SOCIAL_LINKS } from '../data/studioData';
 import { RevealOnScroll } from '../components/animation/RevealOnScroll';
 import { GlassCard } from '../components/ui/GlassCard';
-import { Mail, MapPin, Send, CheckCircle2, Radio, ShieldCheck, Phone, Loader2, AlertCircle } from 'lucide-react';
-import { InstagramIcon, YoutubeIcon } from '../components/ui/SocialIcons';
+import { Mail, MapPin, Send, CheckCircle2, Radio, ShieldCheck, Phone, Loader2, AlertCircle, Navigation } from 'lucide-react';
+import { InstagramIcon, FacebookIcon, YoutubeIcon, GoogleMapsIcon, WhatsAppIcon } from '../components/ui/SocialIcons';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from '../router';
@@ -121,14 +121,48 @@ export function ContactPage() {
                   : 'Whether you want a custom-built heavy-duty power amplifier for your vehicle or need high-performance professional audio solutions, our Kota desk is ready to assist.'}
               </p>
 
-              <div className="flex flex-col gap-6 pt-6 border-t border-white/[0.08]">
+              {/* Trust Metrics Bar */}
+              <div className="grid grid-cols-2 gap-2 mb-6">
+                <div className="p-3 rounded-xl bg-white/[0.03] border border-cyan-400/30">
+                  <span className="block text-xl font-black text-cyan-300 font-display">
+                    {STUDIO_CONFIG.productSales || '10L+'}
+                  </span>
+                  <span className="text-[10px] font-mono uppercase text-zinc-300 font-bold tracking-wider">
+                    Products Sold
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/[0.03] border border-red-500/30">
+                  <span className="block text-xl font-black text-red-400 font-display">
+                    {STUDIO_CONFIG.totalDealers || '200+'}
+                  </span>
+                  <span className="text-[10px] font-mono uppercase text-zinc-300 font-bold tracking-wider">
+                    Total Dealers
+                  </span>
+                </div>
+              </div>
+
+              {/* Official GSTIN Badge */}
+              <div className="mb-6 p-3.5 rounded-2xl bg-cyan-950/20 border border-cyan-400/40 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <div>
+                    <span className="text-[10px] font-mono text-zinc-400 uppercase block font-semibold">Government Registered Business</span>
+                    <span className="text-xs font-mono font-bold text-white tracking-wider">GSTIN: {STUDIO_CONFIG.gstin}</span>
+                  </div>
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
+                  ✓ Verified
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-5 pt-4 border-t border-white/[0.08]">
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[#00e5ff] bg-white/[0.02]">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono uppercase text-zinc-400 block font-semibold">
-                      'Helpline & WhatsApp'
+                      Helpline & WhatsApp
                     </span>
                     <div className="flex flex-wrap gap-x-3 text-sm font-semibold text-[#F5F5F5] font-mono">
                       <a href={`tel:${STUDIO_CONFIG.phones?.[0]?.number || STUDIO_CONFIG.phone || '+919887158522'}`} className="hover:text-[#00e5ff] transition-colors">
@@ -142,17 +176,27 @@ export function ContactPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[#00e5ff] bg-white/[0.02]">
+                {/* Shop Location & Google Maps */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-emerald-400 bg-white/[0.02] shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <span className="text-[10px] font-mono uppercase text-zinc-400 block font-semibold">
-                      'Workshop & Headquarters'
+                      Workshop & Headquarters
                     </span>
-                    <span className="text-sm font-semibold text-[#F5F5F5]">
+                    <span className="text-sm font-semibold text-[#F5F5F5] block mb-2">
                       {STUDIO_CONFIG.location}
                     </span>
+                    <a
+                      href={STUDIO_CONFIG.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono hover:bg-emerald-500/20 transition-all"
+                    >
+                      <Navigation className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Open in Google Maps ↗</span>
+                    </a>
                   </div>
                 </div>
 
@@ -162,7 +206,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <span className="text-[10px] font-mono uppercase text-zinc-400 block font-semibold">
-                      'Distribution & Delivery Reach'
+                      Distribution & Delivery Reach
                     </span>
                     <span className="text-sm font-semibold text-[#F5F5F5]">
                       {STUDIO_CONFIG.reach}
@@ -176,7 +220,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <span className="text-[10px] font-mono uppercase text-zinc-400 block font-semibold">
-                      'Official Email Desk'
+                      Official Email Desk
                     </span>
                     <span className="text-sm font-semibold text-[#F5F5F5]">
                       {STUDIO_CONFIG.email}
@@ -185,24 +229,55 @@ export function ContactPage() {
                 </div>
               </div>
 
-              {/* Verified Social Channels */}
+              {/* Verified Social Channels & Handles */}
               <div className="pt-8 mt-8 border-t border-white/[0.08]">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#00e5ff] block mb-4 font-semibold">
-                  {t.footer.channels}
+                <span className="text-xs font-mono uppercase tracking-widest text-[#00e5ff] block mb-3 font-semibold">
+                  Official Social Handles & Channels
                 </span>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {SOCIAL_LINKS.map((s) => {
-                    const isInstagram = s.name === 'Instagram';
+                    let IconComponent = Radio;
+                    let iconColor = 'text-cyan-400';
+                    let hoverBorder = 'hover:border-cyan-400/50';
+
+                    if (s.type === 'instagram') {
+                      IconComponent = InstagramIcon;
+                      iconColor = 'text-pink-400';
+                      hoverBorder = 'hover:border-pink-500/50';
+                    } else if (s.type === 'facebook') {
+                      IconComponent = FacebookIcon;
+                      iconColor = 'text-blue-400';
+                      hoverBorder = 'hover:border-blue-500/50';
+                    } else if (s.type === 'youtube') {
+                      IconComponent = YoutubeIcon;
+                      iconColor = 'text-red-500';
+                      hoverBorder = 'hover:border-red-500/50';
+                    } else if (s.type === 'maps') {
+                      IconComponent = GoogleMapsIcon;
+                      iconColor = 'text-emerald-400';
+                      hoverBorder = 'hover:border-emerald-500/50';
+                    } else if (s.type === 'whatsapp') {
+                      IconComponent = WhatsAppIcon;
+                      iconColor = 'text-green-400';
+                      hoverBorder = 'hover:border-green-500/50';
+                    }
+
                     return (
                       <a
                         key={s.name}
                         href={s.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-3 rounded-xl bg-white/[0.02] border border-white/[0.08] hover:border-[#00e5ff] flex items-center gap-3 text-xs font-mono transition-all text-zinc-300 hover:text-white"
+                        className={`p-3 rounded-xl bg-white/[0.02] border border-white/[0.08] ${hoverBorder} flex items-center justify-between group transition-all text-xs font-mono text-zinc-300 hover:text-white`}
                       >
-                        {isInstagram ? <InstagramIcon className="w-4 h-4 text-[#00e5ff]" /> : <YoutubeIcon className="w-4 h-4 text-red-500" />}
-                        <span>{s.handle}</span>
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <IconComponent className={`w-4 h-4 shrink-0 ${iconColor} group-hover:scale-110 transition-transform`} />
+                          <div className="truncate">
+                            <span className="font-bold text-white block truncate">{s.name}</span>
+                            <span className="text-zinc-400 text-[10px] block truncate">{s.handle}</span>
+                          </div>
+                        </div>
+                        <span className="text-zinc-500 group-hover:text-cyan-300 transition-colors ml-1">↗</span>
                       </a>
                     );
                   })}
