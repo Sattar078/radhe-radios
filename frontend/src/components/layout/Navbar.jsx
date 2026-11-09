@@ -5,7 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { LanguageSwitcher } from '../ui/LanguageSwitcher';
 import { STUDIO_CONFIG } from '../../data/studioData';
-import { InstagramIcon, FacebookIcon, GoogleMapsIcon } from '../ui/SocialIcons';
+import { InstagramIcon, FacebookIcon, GoogleMapsIcon, YoutubeIcon } from '../ui/SocialIcons';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -149,8 +149,44 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Right Action Controls: Language Button & Login Button */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Right Action Controls: Social Shortcuts, Language Button & Login Button */}
+        <div className="hidden md:flex items-center gap-2 lg:gap-3">
+          {/* Quick Desktop Social Icons (Instagram, YouTube, Google Maps) */}
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-black/40 border border-white/10">
+            <a
+              href={STUDIO_CONFIG.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              title="Official Instagram @radhe_radios_kota"
+              className="p-1.5 rounded-lg text-zinc-400 hover:text-pink-400 hover:bg-white/10 transition-all"
+            >
+              <InstagramIcon className="w-4 h-4" />
+            </a>
+
+            <a
+              href={STUDIO_CONFIG.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              title="Official YouTube Channel"
+              className="p-1.5 rounded-lg text-zinc-400 hover:text-red-500 hover:bg-white/10 transition-all"
+            >
+              <YoutubeIcon className="w-4 h-4" />
+            </a>
+
+            <a
+              href={STUDIO_CONFIG.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Google Maps"
+              title="Workshop on Google Maps"
+              className="p-1.5 rounded-lg text-zinc-400 hover:text-emerald-400 hover:bg-white/10 transition-all"
+            >
+              <GoogleMapsIcon className="w-4 h-4" />
+            </a>
+          </div>
+
           {/* Language Switcher Pill with Lamp Effect */}
           <LanguageSwitcher />
 
@@ -350,38 +386,49 @@ export function Navbar() {
             </Link>
           )}
           {/* Quick Social & Location Bar in Mobile Drawer */}
-          <div className="pt-3 mt-1 border-t border-white/10 flex items-center justify-around text-xs font-mono">
+          <div className="pt-3 mt-1 border-t border-white/10 grid grid-cols-4 gap-1 text-center text-xs font-mono">
             <a
               href={STUDIO_CONFIG.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 p-2 rounded-xl bg-white/[0.04] text-pink-400 hover:text-white transition-colors"
+              className="flex flex-col items-center gap-1 p-2 rounded-xl bg-white/[0.04] text-pink-400 hover:text-white transition-colors"
               title="Instagram"
             >
               <InstagramIcon className="w-4 h-4" />
-              <span className="text-[11px] font-bold">Instagram</span>
+              <span className="text-[10px] font-bold">Insta</span>
+            </a>
+
+            <a
+              href={STUDIO_CONFIG.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-1 p-2 rounded-xl bg-white/[0.04] text-red-500 hover:text-white transition-colors"
+              title="YouTube"
+            >
+              <YoutubeIcon className="w-4 h-4" />
+              <span className="text-[10px] font-bold">YouTube</span>
             </a>
 
             <a
               href={STUDIO_CONFIG.facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 p-2 rounded-xl bg-white/[0.04] text-blue-400 hover:text-white transition-colors"
+              className="flex flex-col items-center gap-1 p-2 rounded-xl bg-white/[0.04] text-blue-400 hover:text-white transition-colors"
               title="Facebook"
             >
               <FacebookIcon className="w-4 h-4" />
-              <span className="text-[11px] font-bold">Facebook</span>
+              <span className="text-[10px] font-bold">Facebook</span>
             </a>
 
             <a
               href={STUDIO_CONFIG.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 p-2 rounded-xl bg-white/[0.04] text-emerald-400 hover:text-white transition-colors"
+              className="flex flex-col items-center gap-1 p-2 rounded-xl bg-white/[0.04] text-emerald-400 hover:text-white transition-colors"
               title="Workshop on Google Maps"
             >
               <GoogleMapsIcon className="w-4 h-4" />
-              <span className="text-[11px] font-bold">Location</span>
+              <span className="text-[10px] font-bold">Location</span>
             </a>
           </div>
         </div>

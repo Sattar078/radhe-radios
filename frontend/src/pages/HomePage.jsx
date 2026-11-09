@@ -5,6 +5,7 @@ import { ProductShowcaseSection } from '../components/home/ProductShowcaseSectio
 import { CraftProcessSection } from '../components/home/CraftProcessSection';
 import { DealershipDeskSection } from '../components/home/DealershipDeskSection';
 import { VerifiedReviewsSection } from '../components/ui/VerifiedReviewsSection';
+import { SocialCommunitySection } from '../components/home/SocialCommunitySection';
 
 export function HomePage() {
   return (
@@ -21,10 +22,13 @@ export function HomePage() {
       {/* ── 4. ACOUSTIC ENGINEERING WORKFLOW PROTOCOL ─────────────────────── */}
       <CraftProcessSection />
 
-      {/* ── 5. VERIFIED CUSTOMER & DJ REVIEWS ──────────────────────────────── */}
+      {/* ── 5. OFFICIAL SOCIAL MEDIA & COMMUNITY (INSTA, YOUTUBE, FB, MAPS) ─ */}
+      <SocialCommunitySection />
+
+      {/* ── 6. VERIFIED CUSTOMER & DJ REVIEWS ──────────────────────────────── */}
       <VerifiedReviewsSection />
 
-      {/* ── 6. PAN-INDIA DEALERSHIP DESK & DIRECT CONSULTATION ────────────── */}
+      {/* ── 7. PAN-INDIA DEALERSHIP DESK & DIRECT CONSULTATION ────────────── */}
       <DealershipDeskSection />
     </div>
   );

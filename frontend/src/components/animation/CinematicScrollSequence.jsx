@@ -22,6 +22,7 @@ import {
 import { Link } from '../../router';
 import { STUDIO_CONFIG } from '../../data/studioData';
 import { useLanguage } from '../../context/LanguageContext';
+import { InstagramIcon, YoutubeIcon, FacebookIcon, GoogleMapsIcon } from '../ui/SocialIcons';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -675,6 +676,53 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
               <Phone className="w-3.5 h-3.5 fill-current text-zinc-400 group-hover:text-cyan-300 transition-colors relative z-10" />
               <span className="relative z-10 hidden sm:inline">{STUDIO_CONFIG.phone}</span>
               <span className="relative z-10 sm:hidden">{t.hero.callBtn || 'CALL'}</span>
+            </a>
+          </div>
+
+          {/* Reel Social Channels Strip */}
+          <div className="flex items-center justify-center gap-2 pt-1.5 sm:pt-2">
+            <a
+              href={STUDIO_CONFIG.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 hover:bg-pink-950/60 border border-white/15 hover:border-pink-500/50 text-zinc-300 hover:text-pink-300 text-[10px] font-mono transition-all backdrop-blur-md"
+              title="Official Instagram"
+            >
+              <InstagramIcon className="w-3 h-3 text-pink-400" />
+              <span>Instagram</span>
+            </a>
+
+            <a
+              href={STUDIO_CONFIG.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 hover:bg-red-950/60 border border-white/15 hover:border-red-500/50 text-zinc-300 hover:text-red-300 text-[10px] font-mono transition-all backdrop-blur-md"
+              title="Official YouTube"
+            >
+              <YoutubeIcon className="w-3 h-3 text-red-500" />
+              <span>YouTube</span>
+            </a>
+
+            <a
+              href={STUDIO_CONFIG.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 hover:bg-blue-950/60 border border-white/15 hover:border-blue-500/50 text-zinc-300 hover:text-blue-300 text-[10px] font-mono transition-all backdrop-blur-md"
+              title="Official Facebook"
+            >
+              <FacebookIcon className="w-3 h-3 text-blue-400" />
+              <span>Facebook</span>
+            </a>
+
+            <a
+              href={STUDIO_CONFIG.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 hover:bg-emerald-950/60 border border-white/15 hover:border-emerald-500/50 text-zinc-300 hover:text-emerald-300 text-[10px] font-mono transition-all backdrop-blur-md"
+              title="Workshop Google Maps"
+            >
+              <GoogleMapsIcon className="w-3 h-3 text-emerald-400" />
+              <span>Location</span>
             </a>
           </div>
         </div>
