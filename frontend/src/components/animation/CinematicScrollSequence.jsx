@@ -25,11 +25,11 @@ import { useLanguage } from '../../context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Memory Management & Buffer Constants
-const MAX_BUFFER_SIZE = 30;
-const MAX_CONCURRENT_REQUESTS = 5;
-const PRELOAD_FORWARD = 18;
-const PRELOAD_BACKWARD = 8;
+// Memory Management & Buffer Constants (Tuned for 1000-Frame Ultra-Smooth Reel)
+const MAX_BUFFER_SIZE = 45;
+const MAX_CONCURRENT_REQUESTS = 6;
+const PRELOAD_FORWARD = 24;
+const PRELOAD_BACKWARD = 10;
 
 export function CinematicScrollSequence({ onSequenceComplete }) {
   const { t, isHindi } = useLanguage();
