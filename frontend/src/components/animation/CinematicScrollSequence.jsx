@@ -410,7 +410,7 @@ export function CinematicScrollSequence({ onSequenceComplete }) {
             });
           }
 
-          // Apple-style Scrollytelling Transitions across 775 Frames
+          // Apple-style Scrollytelling Transitions across 1000 Frames
           const applyChapter = (el, p, enterStart, enterEnd, exitStart, exitEnd, maxTranslate = 24) => {
             if (!el) return;
             let opacity = 0;
